@@ -6,35 +6,13 @@ Right now, you can get the nba schedule and elo ratings from this project and ge
 ![image](https://user-images.githubusercontent.com/16811433/195012880-adf8da03-ab16-4c16-8080-95514fb41c21.png)
 ![image](https://user-images.githubusercontent.com/16811433/195012951-dde884a0-88f5-48d5-8203-b6f06ba7dbd4.png)
 
-## Getting started - Windows
-1. Create your WSL environment. Open a PowerShell terminal running as an administrator and execute:
-```
-wsl --install
-```
-* If this was the first time WSL has been installed, restart your machine.
-
-2. Open Ubuntu in your terminal and update your packages. 
-```
-sudo apt-get update
-```
-3. Install python3.
-```
-sudo apt-get install python3.8 python3-pip python3.8-venv
-```
-4. clone the this repo.
-```
-mkdir meltano-projects
-cd meltano-projects
-git clone https://github.com/matsonj/nba-monte-carlo.git
-# Go one folder level down into the folder that git just created
-cd nba-monte-carlo
-```
-5. build your project & run your pipeline
+## Getting started - OS-X
+1. build your project & run your pipeline
 ```
 make build
 make run
 ```
-6. Connect duckdb to superset. first, create an admin users
+2. Connect duckdb to superset. first, create an admin users
 ```
 meltano invoke superset:create-admin
 ```
@@ -48,7 +26,7 @@ meltano run superset:ui
 
    - Advanced Settings > Other > Engine Parameters: ```{"connect_args":{"read_only":true}}```
 
-7. Explore your data inside superset. Go to SQL Labs > SQL Editor and write a custom query. A good example is ```SELECT * FROM reg_season_end```.
+3. Explore your data inside superset. Go to SQL Labs > SQL Editor and write a custom query. A good example is ```SELECT * FROM reg_season_end```.
 
 ## Running your pipeline on demand
 After your run ```make run```, you can run your pipeline again at any time with the following meltano command:
