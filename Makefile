@@ -1,9 +1,9 @@
 build:
-	python3 -m pip install --user pipx ;\
-	python3 -m pipx ensurepath ;\
-	source ~/.bashrc ;\
-	pipx install meltano ;\
-	meltano install ;\
+	virtualenv "venv" ;\
+	venv/bin/python3 -m pip install pipx ;\
+	venv/bin/python3 -m pipx ensurepath ;\
+	venv/bin/pip install meltano;\
+	venv/bin/meltano install ;\
 
 run:
-	meltano run tap-spreadsheets-anywhere target-duckdb dbt-duckdb:build
+	venv/bin/meltano run tap-spreadsheets-anywhere target-duckdb dbt-duckdb:build
